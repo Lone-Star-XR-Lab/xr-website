@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>XR Lab Playground</title>
+<!--
+  PREVIEW WRAPPER for https://www.lonestar.edu/Tomball-XR-Lab
+  Loads the live lonestar.edu stylesheets and recreates the page's breadcrumb,
+  title, content column, and "Related" sidebar, so the content looks the way it
+  will on the real site. Only the block between BEGIN/END CMS CONTENT goes into
+  the CMS. Everything else in this file is preview scaffolding.
+
+  Preview options (add to the address bar):
+    ?wide    full-width layout (no sidebar), the template setting the web team can switch on
+    ?bare    hide the site header and footer
+  The header and footer come from preview/site-chrome.js (regenerate with
+  node tools/update-chrome.js --live).
+-->
+<link rel="stylesheet" href="https://www.lonestar.edu/css-refresh/style.css">
+<link rel="stylesheet" href="https://www.lonestar.edu/css-refresh/content-page.css">
+<link rel="stylesheet" href="https://www.lonestar.edu/css-refresh/legacy.css">
+<link rel="stylesheet" href="https://www.lonestar.edu/css-refresh/fonts.css">
+<link rel="stylesheet" href="https://www.lonestar.edu/css/header/header.css">
+<link rel="stylesheet" href="https://www.lonestar.edu/css/header/lsc.css">
+<link rel="stylesheet" href="https://www.lonestar.edu/css-refresh/alert.css">
+<script src="https://kit.fontawesome.com/0c62ed585a.js" crossorigin="anonymous"></script>
+<script src="preview/site-chrome.js"></script>
+</head>
+<body class="content-page">
+
+<aside aria-label="Preview notice" style="position:fixed;left:12px;bottom:12px;z-index:3000;max-width:calc(100% - 24px);background:#fff3cd;color:#3d2f00;border:1px solid #e0c200;border-radius:8px;padding:6px 12px;font:13px/1.4 system-ui,sans-serif;box-shadow:0 2px 8px rgba(0,0,0,.25)">
+  <strong>Playground</strong>: a scratch page, not the live content. <a href="index.html">Page preview</a> &middot; with the live lonestar.edu header, footer, and stylesheets.
+  <a href="?bare">Hide header/footer</a> &middot; <a href="?wide" id="layout-toggle">Switch to full width</a>
+</aside>
+
+<main id="main-body">
+<script>LSCPreview.header();</script>
+  <section class="breadcrumbs-container">
+    <div class="container">
+      <div class="breadcrumbs">
+        <ul>
+          <li><a href="https://www.lonestar.edu/Tomball-SI.htm">Strategic Initiatives</a></li>
+          <li><a href="https://www.lonestar.edu/wpli.htm">Wolf Pack Leadership Institute</a></li>
+          <li><a href="https://www.lonestar.edu/osi.htm">Office of Strategy and Innovation</a></li>
+          <li>Tomball XR Lab</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-well-section section-light">
+    <div class="container">
+      <div id="content" class="row">
+        <div class="col-12"><h1>Tomball XR Lab</h1></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-9 col-md-8" id="content-col">
+          <div class="content-well">
+
+<!-- ===================== BEGIN CMS CONTENT ===================== -->
+
+<link rel="stylesheet" href="https://lone-star-xr-lab.github.io/xr-website/css/cms-fix.css" />
+
+<!--
+  PLAYGROUND: try designs here before moving them into index.html.
+  Every block uses only classes the site already loads (Bootstrap 5.3.3 + LSC style.css + Font Awesome 5).
+  No <style> blocks (the CMS strips the tags and leaves the CSS showing as text) and no <script> (won't run).
+  Each block notes what has been proven on lonestar.edu (XR Lab, RIC, Tomball 3.0 pages).
+-->
+<p class="mb-3 pt-0"><a id="BackToTop" name="BackToTop"></a></p>
+
+<!-- ========================= --><!--   HERO: 360 view + navy bar   --><!-- ========================= -->
+<!-- Proven: section-dark band, ratio iframe, btn classes. Div wrappers are untested on this page; test-paste a draft first. -->
+<div class="section-dark rounded overflow-hidden shadow-sm mb-4">
+<p class="ratio ratio-16x9 mb-0 pt-0"><iframe src="https://cdn.pannellum.org/2.5/pannellum.htm#panorama=https://lone-star-xr-lab.github.io/progress360/assets/xr-lab/001-xr-lab.jpg&amp;autoLoad=true&amp;autoRotate=-2&amp;pitch=-5&amp;yaw=-220&amp;hfov=120" title="360-degree panoramic view of the XR Lab at Lone Star College-Tomball"></iframe></p>
+<div class="row g-3 align-items-center px-4 py-3">
+<div class="col-xl-6">
+<p class="fs-4 fw-bold text-white lh-sm mb-0 pt-0">Step into virtual, augmented, and mixed reality &mdash; no experience needed</p>
+</div>
+<div class="col-xl-6">
+<p class="d-flex flex-wrap justify-content-xl-end gap-2 mb-0 pt-0"><a class="btn btn-light rounded-pill px-4" href="https://outlook.office.com/book/XRLabBooking@mylonestar.onmicrosoft.com/?ismsaljsauthenabled" target="_blank">Book the Lab</a> <a class="btn btn-outline-light rounded-pill px-4" href="https://outlook.office.com/book/XRLabConsultation@mylonestar.onmicrosoft.com/s/IIC2doJv1kqdJg-fyLMMJw2?ismsaljsauthenabled" target="_blank">Schedule a Consultation</a></p>
+</div>
+</div>
+</div>
+
+<!-- ========================= --><!--   JUMP-LINK BAR   --><!-- ========================= -->
+<!-- Proven on RIC / Tomball 3.0. -->
+<div class="section-dark rounded p-3 mb-3">
+<p class="d-flex flex-wrap justify-content-center gap-4 mb-0 pt-0"><a class="text-white fw-bold" href="#about"><i aria-hidden="true" class="fas fa-vr-cardboard me-1"></i> About</a><a class="text-white fw-bold" href="#start"><i aria-hidden="true" class="fas fa-play-circle me-1"></i> Start Here</a><a class="text-white fw-bold" href="#hours"><i aria-hidden="true" class="fas fa-clock me-1"></i> Hours</a><a class="text-white fw-bold" href="#apps"><i aria-hidden="true" class="fas fa-th-large me-1"></i> Apps</a><a class="text-white fw-bold" href="#calendar"><i aria-hidden="true" class="fas fa-calendar-alt me-1"></i> Calendar</a></p>
+</div>
+
+<!-- ========================= --><!--   KEY FACTS ROW   --><!-- ========================= -->
+<!-- Same pattern as the Tomball 3.0 "Launched / Strategies / Partner" row. -->
+<div class="bg-body-tertiary rounded px-4 py-3 mb-5">
+<div class="row g-3">
+<div class="col-md-4">
+<p class="d-flex align-items-center gap-3 mb-0 pt-0"><i aria-hidden="true" class="fas fa-map-marker-alt fa-lg fa-fw text-primary"></i> <span><span class="d-block small text-uppercase fw-bold text-body-secondary">Location</span> <span class="d-block fw-bold">East Hall, Room E251</span></span></p>
+</div>
+<div class="col-md-4">
+<p class="d-flex align-items-center gap-3 mb-0 pt-0"><i aria-hidden="true" class="fas fa-clock fa-lg fa-fw text-primary"></i> <span><span class="d-block small text-uppercase fw-bold text-body-secondary">Open Lab</span> <span class="d-block fw-bold">Tue&ndash;Thu, 9 AM&ndash;4 PM</span></span></p>
+</div>
+<div class="col-md-4">
+<p class="d-flex align-items-center gap-3 mb-0 pt-0"><i aria-hidden="true" class="fas fa-envelope fa-lg fa-fw text-primary"></i> <span><span class="d-block small text-uppercase fw-bold text-body-secondary">Email</span> <a class="d-block fw-bold" href="mailto:tc-xrlab@lonestar.edu">TC-XRLab@lonestar.edu</a></span></p>
+</div>
+</div>
+</div>
+
+<!-- ========================= --><!--   EYEBROW + HEADING   --><!-- ========================= -->
+<!-- The eyebrow holds the anchor so it isn't empty (the CMS adds a <br /> after an empty anchor in a heading). -->
+<p class="small text-uppercase fw-bold text-danger-emphasis mb-2 pt-0"><a id="about">About the Lab</a></p>
+<h2 class="pt-0">A hands-on space for immersive learning</h2>
+<p class="lead mb-3 pt-0">Students, faculty, and staff use the XR Lab for classes, projects, training, demonstrations, games, and independent exploration.</p>
+<p class="mb-5 pt-0"><strong>XR, or Extended Reality,</strong> is an umbrella term that includes Virtual Reality (VR), Augmented Reality (AR), and Mixed Reality (MR).</p>
+
+<!-- ========================= --><!--   AUDIENCE CARDS   --><!-- ========================= -->
+<!-- Card pattern from Tomball 3.0 (untested in the CMS; test-paste a draft). -->
+<div class="bg-body-tertiary rounded p-4 p-md-5 mb-5">
+<p class="small text-uppercase fw-bold text-danger-emphasis mb-2 pt-0"><a id="start">Start Here</a></p>
+<h2 class="pt-0">Find your way in</h2>
+<div class="row g-4">
+<div class="col-md-6">
+<div class="card h-100 rounded shadow-sm border-0 border-top border-4 border-primary">
+<div class="card-body d-flex flex-column p-4">
+<p class="mb-3 pt-0"><i aria-hidden="true" class="fas fa-user-graduate fa-2x text-primary"></i></p>
+<h3 class="h5 fw-bold mb-2">Students</h3>
+<p class="small text-body-secondary mb-0 pt-0">Stop by during Open Lab hours to explore experiences, play games, work on a project, or get help with the equipment.</p>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="card h-100 rounded shadow-sm border-0 border-top border-4 border-primary">
+<div class="card-body d-flex flex-column p-4">
+<p class="mb-3 pt-0"><i aria-hidden="true" class="fas fa-chalkboard-teacher fa-2x text-primary"></i></p>
+<h3 class="h5 fw-bold mb-2">Faculty and Staff</h3>
+<p class="small text-body-secondary mb-3 pt-0">Test an application, get training, or plan an XR activity for your course.</p>
+<p class="mt-auto mb-0 pt-0"><a class="fw-bold" href="https://outlook.office.com/book/XRLabConsultation@mylonestar.onmicrosoft.com/s/IIC2doJv1kqdJg-fyLMMJw2?ismsaljsauthenabled" target="_blank">Schedule a consultation <i aria-hidden="true" class="fas fa-arrow-right"></i></a></p>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="card h-100 rounded shadow-sm border-0 border-top border-4 border-primary">
+<div class="card-body d-flex flex-column p-4">
+<p class="mb-3 pt-0"><i aria-hidden="true" class="fas fa-users fa-2x text-primary"></i></p>
+<h3 class="h5 fw-bold mb-2">Student Organizations</h3>
+<p class="small text-body-secondary mb-0 pt-0">Request the lab for approved projects, demonstrations, meetings, and special activities.</p>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="card h-100 rounded shadow-sm border-0 border-top border-4 border-primary">
+<div class="card-body d-flex flex-column p-4">
+<p class="mb-3 pt-0"><i aria-hidden="true" class="fas fa-compass fa-2x text-primary"></i></p>
+<h3 class="h5 fw-bold mb-2">Explore XR</h3>
+<p class="small text-body-secondary mb-3 pt-0">See what is installed on the headsets, or browse apps that could fit a class.</p>
+<p class="mt-auto mb-0 pt-0"><a class="fw-bold" href="https://lone-star-xr-lab.github.io/xr-lab-library/">Installed Apps <i aria-hidden="true" class="fas fa-arrow-right"></i></a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ========================= --><!--   HOURS TABLE   --><!-- ========================= -->
+<!-- Bootstrap table classes instead of border="1" cellpadding="8". -->
+<p class="small text-uppercase fw-bold text-danger-emphasis mb-2 pt-0"><a id="hours">Visit</a></p>
+<h2 class="pt-0">Lab Hours</h2>
+<table class="table table-striped table-bordered mb-2">
+<thead class="table-dark"><tr><th scope="col">Day</th><th scope="col">Hours</th></tr></thead>
+<tbody>
+<tr><td><strong>Monday</strong></td><td>Closed</td></tr>
+<tr><td><strong>Tuesday</strong></td><td>9:00 AM&ndash;4:00 PM</td></tr>
+<tr><td><strong>Wednesday</strong></td><td>9:00 AM&ndash;4:00 PM</td></tr>
+<tr><td><strong>Thursday</strong></td><td>9:00 AM&ndash;4:00 PM</td></tr>
+<tr><td><strong>Friday</strong></td><td>Closed</td></tr>
+</tbody>
+</table>
+<p class="small text-body-secondary mb-5 pt-0"><i>Hours may change for holidays, classes, training, and events. Check the Lab Calendar for current availability.</i></p>
+
+<!-- ========================= --><!--   WIDGET EMBED (GitHub Pages iframe)   --><!-- ========================= -->
+<!-- Proven: RIC ric-events. Anything interactive (search, filters, JS) goes in a widget like this. -->
+<div class="bg-body-tertiary rounded p-4 p-md-5 mb-5">
+<p class="small text-uppercase fw-bold text-danger-emphasis mb-2 pt-0"><a id="apps">Apps and Experiences</a></p>
+<h2 class="pt-0">What is on the headsets</h2>
+<div style="width:100%"><iframe height="700" loading="lazy" src="https://lone-star-xr-lab.github.io/xr-lab-library/" style="width:100%" title="XR Lab Installed Apps" width="100%"></iframe></div>
+<p class="text-center small mb-0 pt-0"><a href="https://lone-star-xr-lab.github.io/xr-lab-library/" rel="noopener noreferrer" target="_blank">Open Installed Apps in a New Window</a></p>
+</div>
+
+<!-- ========================= --><!--   CALENDAR   --><!-- ========================= -->
+<p class="small text-uppercase fw-bold text-danger-emphasis mb-2 pt-0"><a id="calendar">Schedule</a></p>
+<h2 class="pt-0">Lab Calendar</h2>
+<p class="mb-5 pt-0"><iframe height="800" src="https://outlook.office365.com/owa/calendar/bf86e4ba3b7a4579871f320d8532237e@lonestar.edu/572824c1771447c5bb19ea4578eb162813983267703408775056/calendar.html" title="XR Lab calendar" width="100%"></iframe></p>
+
+<!-- ========================= --><!--   CTA BAND + BACK TO TOP   --><!-- ========================= -->
+<div class="section-dark rounded p-4 mb-4">
+<div class="row align-items-center g-3">
+<div class="col-md-5">
+<h2 class="h4 text-white pt-0 mb-0">Have an app in mind?</h2>
+</div>
+<div class="col-md-7">
+<p class="d-flex flex-wrap justify-content-md-end gap-2 mb-0 pt-0"><a class="btn btn-light rounded-pill px-4" href="https://forms.cloud.microsoft/r/REX9eYTu3m" target="_blank">Request an XR App or Game</a></p>
+</div>
+</div>
+</div>
+<p class="text-center mb-3 pt-0"><a class="btn btn-outline-primary rounded-pill" href="#BackToTop"><i aria-hidden="true" class="fas fa-arrow-up"></i> Back to Top</a></p>
+
+<!-- ====================== END CMS CONTENT ====================== -->
+
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4" id="sidebar-col">
+          <div id="pagenav" class="content-well-sidebar">
+            <h3>Related</h3>
+            <div class="related-links">
+              <ul>
+                <li><a href="https://www.lonestar.edu/tomball-ric">R&amp;I Center Homepage</a></li>
+                <li><a href="https://www.lonestar.edu/tomball-ric-calendar">Calendar</a></li>
+                <li><a href="https://www.lonestar.edu/66807.htm">Resources</a></li>
+                <li><a href="https://www.lonestar.edu/66809.htm">Tools</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<script>LSCPreview.footer();</script>
+</main>
+
+<script>
+  // PREVIEW ONLY (not part of the CMS content).
+  (function () {
+    // 1. Full-width layout toggle (?wide).
+    var wide = /[?&]wide\b/.test(location.search);
+    var toggle = document.getElementById("layout-toggle");
+    var bare = /[?&]bare\b/.test(location.search);
+    if (bare) toggle.setAttribute("href", "?bare&wide");
+    if (wide) {
+      document.getElementById("sidebar-col").remove();
+      document.getElementById("content-col").className = "col-12";
+      toggle.textContent = "Switch to sidebar layout";
+      toggle.setAttribute("href", bare ? "?bare" : location.pathname);
+    }
+
+    // 2. Until files are deployed to GitHub Pages (and while editing), load
+    //    CSS, iframes, and links from this folder instead of the live address.
+    var live = "https://lone-star-xr-lab.github.io/xr-website/";
+    if (location.href.indexOf(live) === 0) return;
+    document.querySelectorAll('link[href^="' + live + '"]').forEach(function (el) {
+      el.setAttribute("href", el.getAttribute("href").replace(live, ""));
+    });
+    document.querySelectorAll('a[href^="' + live + '"]').forEach(function (el) {
+      el.setAttribute("href", el.getAttribute("href").replace(live, ""));
+    });
+    document.querySelectorAll('iframe[src^="' + live + '"]').forEach(function (frame) {
+      var copy = frame.cloneNode(true);
+      copy.setAttribute("src", frame.getAttribute("src").replace(live, ""));
+      frame.replaceWith(copy);
+    });
+  })();
+</script>
+<script src="https://www.lonestar.edu/js-out/jquery-3.3.1.min.js"></script>
+<script src="https://www.lonestar.edu/js-out/popper.min.js"></script>
+<script src="https://www.lonestar.edu/js-out/bootstrap.min.js"></script>
+<script src="https://www.lonestar.edu/js-out/jquery.sticky.js"></script>
+<script src="https://www.lonestar.edu/js/header/menu.js"></script>
+</body>
+</html>

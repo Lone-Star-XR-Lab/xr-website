@@ -1,0 +1,7 @@
+/*
+ * Loaded by the CMS page (lonestar.edu) through a <link> at the top of the content.
+ * The site's /css/header/header.css sets body { width: 100vw }, which is wider than the
+ * window whenever a scrollbar shows (Windows), so content runs under the scrollbar.
+ * Same fix as the tomball3.0 project. If the CMS strips the <link>, nothing breaks.
+ */
+body { width: auto !important; }
