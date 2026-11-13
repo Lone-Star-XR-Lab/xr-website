@@ -12,7 +12,8 @@
   the CMS. Everything else in this file is preview scaffolding.
 
   Preview options (add to the address bar):
-    ?wide    full-width layout (no sidebar), the template setting the web team can switch on
+    ?sidebar the current template with the "Related" sidebar (the page is designed for
+             full width; the web team switches the template for launch)
     ?bare    hide the site header and footer
   The header and footer come from preview/site-chrome.js (regenerate with
   node tools/update-chrome.js --live).
@@ -31,7 +32,7 @@
 
 <aside aria-label="Preview notice" style="position:fixed;left:12px;bottom:12px;z-index:3000;max-width:calc(100% - 24px);background:#fff3cd;color:#3d2f00;border:1px solid #e0c200;border-radius:8px;padding:6px 12px;font:13px/1.4 system-ui,sans-serif;box-shadow:0 2px 8px rgba(0,0,0,.25)">
   <strong>Playground</strong>: a scratch page, not the live content. <a href="index.html">Page preview</a> &middot; with the live lonestar.edu header, footer, and stylesheets.
-  <a href="?bare">Hide header/footer</a> &middot; <a href="?wide" id="layout-toggle">Switch to full width</a>
+  <a href="?bare">Hide header/footer</a> &middot; <a href="?sidebar" id="layout-toggle">Show with sidebar</a>
 </aside>
 
 <main id="main-body">
@@ -229,16 +230,18 @@
 <script>
   // PREVIEW ONLY (not part of the CMS content).
   (function () {
-    // 1. Full-width layout toggle (?wide).
-    var wide = /[?&]wide\b/.test(location.search);
+    // 1. Layout: full width by default (the page is designed for it);
+    //    ?sidebar shows the current template with the "Related" sidebar.
+    var sidebar = /[?&]sidebar/.test(location.search);
+    var bare = /[?&]bare/.test(location.search);
     var toggle = document.getElementById("layout-toggle");
-    var bare = /[?&]bare\b/.test(location.search);
-    if (bare) toggle.setAttribute("href", "?bare&wide");
-    if (wide) {
+    if (sidebar) {
+      toggle.textContent = "Switch to full width";
+      toggle.setAttribute("href", bare ? "?bare" : location.pathname);
+    } else {
       document.getElementById("sidebar-col").remove();
       document.getElementById("content-col").className = "col-12";
-      toggle.textContent = "Switch to sidebar layout";
-      toggle.setAttribute("href", bare ? "?bare" : location.pathname);
+      toggle.setAttribute("href", bare ? "?bare&sidebar" : "?sidebar");
     }
 
     // 2. Until files are deployed to GitHub Pages (and while editing), load

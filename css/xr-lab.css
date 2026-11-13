@@ -25,11 +25,32 @@
 	color: var(--xr-link);
 }
 
+/* Links inside sentences need more than color to stand out (WCAG 1.4.1):
+   the link blue is only 2:1 against body text, so underline them. */
+.xr-page p:not(.d-flex) > a[href]:not(.btn):not(.fw-bold),
+.xr-page li > a[href]:not(.btn),
+.xr-page td > a[href]:not(.btn) {
+	text-decoration: underline;
+	text-underline-offset: 0.15em;
+}
+
+/* Focus ring: navy on light backgrounds, gold on the dark bands.
+   Gold on white is only 1.5:1 and fails WCAG 1.4.11 (needs 3:1).
+   !important because the site's stylesheets set their own link focus styles
+   with higher specificity; these only apply while something has keyboard focus. */
 .xr-page a:focus-visible,
-.xr-page .btn:focus-visible {
-	outline: 3px solid var(--xr-gold);
-	outline-offset: 2px;
-	box-shadow: none;
+.xr-page .btn:focus-visible,
+.xr-page iframe:focus-visible {
+	outline-style: solid !important;
+	outline-width: 3px !important;
+	outline-color: #0b1d3a !important; /* --xr-navy */
+	outline-offset: 2px !important;
+	box-shadow: none !important;
+}
+
+.xr-page .xr-dark a:focus-visible,
+.xr-page .xr-dark .btn:focus-visible {
+	outline-color: #ffcf24 !important; /* --xr-gold */
 }
 
 /* ---------- Dark "space" sections ---------- */
@@ -157,9 +178,179 @@
 	color: #fff;
 }
 
-/* ---------- Logo ---------- */
-.xr-page .xr-logo {
-	width: 88px;
-	height: auto;
-	flex-shrink: 0;
+/* ---------- Hero ---------- */
+/* Logo fills the full height of the navy bar, flush left, rounded on the left side. */
+.xr-page .xr-hero-logo {
+	position: relative;
+	flex: 0 0 11rem;
+	min-height: 11rem;
+	margin: 0;
+	padding: 0;
+}
+
+.xr-page .xr-hero-logo img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 1rem 0 0 1rem;
+}
+
+/* Phones: the bar stacks, so the logo becomes a rounded square above the text,
+   and the 360 view goes back to 16:9 (21:9 is too short on a narrow screen). */
+@media (max-width: 767.98px) {
+	.xr-page .xr-hero-360 {
+		--bs-aspect-ratio: 56.25%;
+	}
+
+	.xr-page .xr-hero-logo {
+		flex: none;
+		min-height: 0;
+		padding: 1.5rem 1.5rem 0;
+	}
+
+	.xr-page .xr-hero-logo img {
+		position: static;
+		width: 6rem;
+		height: 6rem;
+		border-radius: 1rem;
+	}
+}
+
+/* ---------- Icon rows (icon + text that may wrap) ---------- */
+/* Fixed-width icon column so wrapped lines stay aligned, and the icon
+   shares the text's line height so it lines up with the first line. */
+.xr-page .xr-iconrow > i {
+	flex: 0 0 1.5em;
+	margin-top: 0 !important;
+	font-size: 1.05em;
+	line-height: inherit;
+	text-align: center;
+}
+
+/* ---------- Clickable cards lift on hover ---------- */
+.xr-page .xr-card {
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.xr-page .xr-card:has(a[href]):hover,
+.xr-page .xr-card:has(a[href]:focus-visible) {
+	transform: translateY(-4px);
+	box-shadow: 0 0.75rem 1.5rem rgba(11, 29, 58, 0.16);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.xr-page .xr-card {
+		transition: none;
+	}
+
+	.xr-page .xr-card:has(a[href]):hover,
+	.xr-page .xr-card:has(a[href]:focus-visible) {
+		transform: none;
+	}
+}
+
+/* ---------- Big numbers (equipment) ---------- */
+.xr-page .xr-stat {
+	display: inline-block;
+	color: var(--xr-navy);
+	font-size: 3.5rem;
+	font-weight: 800;
+	line-height: 1;
+	padding-bottom: 0.35rem;
+	border-bottom: 4px solid var(--xr-gold);
+}
+
+/* ---------- Embedded frames ---------- */
+.xr-page .xr-frame {
+	border: 1px solid #d5ddeb;
+}
+
+/* ---------- Expand/collapse (<details>) ---------- */
+/* FAQ items */
+.xr-page .xr-accordion {
+	border-bottom: 1px solid #d5ddeb;
+}
+
+.xr-page .xr-accordion > summary {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 1rem 0;
+	color: var(--xr-navy);
+	font-weight: 700;
+	cursor: pointer;
+	list-style: none;
+}
+
+.xr-page .xr-accordion > summary::-webkit-details-marker {
+	display: none;
+}
+
+.xr-page .xr-accordion > summary::after {
+	content: "+";
+	flex: 0 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 1.75rem;
+	height: 1.75rem;
+	border-radius: 50%;
+	background-color: var(--xr-soft);
+	color: var(--xr-navy);
+	font-size: 1.25rem;
+	line-height: 1;
+}
+
+.xr-page .xr-accordion[open] > summary::after {
+	content: "\2212";
+	background-color: var(--xr-navy);
+	color: var(--xr-gold);
+}
+
+.xr-page .xr-accordion > summary:hover {
+	color: var(--xr-link);
+}
+
+.xr-page .xr-accordion > :not(summary) {
+	padding-bottom: 1rem;
+	color: #495057;
+}
+
+/* "Show the calendar" style reveal: the summary looks like an outline button. */
+.xr-page .xr-reveal > summary {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.5rem 1.25rem;
+	border: 2px solid var(--xr-navy);
+	border-radius: 50rem;
+	color: var(--xr-navy);
+	font-weight: 700;
+	cursor: pointer;
+	list-style: none;
+}
+
+.xr-page .xr-reveal > summary::-webkit-details-marker {
+	display: none;
+}
+
+.xr-page .xr-reveal > summary:hover {
+	background-color: var(--xr-navy);
+	color: var(--xr-gold);
+}
+
+.xr-page .xr-reveal .xr-when-open,
+.xr-page .xr-reveal[open] .xr-when-closed {
+	display: none;
+}
+
+.xr-page .xr-reveal[open] .xr-when-open {
+	display: inline;
+}
+
+.xr-page details > summary:focus-visible {
+	outline: 3px solid #0b1d3a;
+	outline-offset: 2px;
 }

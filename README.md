@@ -24,9 +24,10 @@ project: plain HTML, with no build step and nothing to install. Not an official 
 
 1. **Preview:** double-click `index.html` or `playground.html`, or use VS Code's *Live Server*
    extension so it reloads on save. Both pages load the **real lonestar.edu stylesheets**, so the
-   layout matches the site, with the real college header and footer around it. Add `?wide` to the
-   address to preview the full-width (no-sidebar) template, or `?bare` to hide the header and footer.
-   The yellow badge in the bottom corner has links for both.
+   layout matches the site, with the real college header and footer around it. The page is designed
+   for the **full-width (no-sidebar) template**, so that's the preview default; the web team needs to
+   switch the page to it at launch. Add `?sidebar` to the address to see it in the current template,
+   or `?bare` to hide the header and footer. The yellow badge in the bottom corner has links for both.
 2. **Experiment** in `playground.html`, then move the parts that work into `index.html`.
 3. **Check:**
    ```
@@ -58,7 +59,9 @@ RIC, and Tomball 3.0 pages:
 | Font Awesome 5 icons (`<i class="fas fa-vr-cardboard">`) | `<div>`s were stripped on save once (Tomball 3.0 team section). Test-paste first. |
 | `<p class="ratio ratio-16x9"><iframe>` for 360 views and video | Inline `background:` styles were dropped. Use an `<img>` instead. |
 | `<iframe>` widgets from github.io, plus an "Open in a New Window" link | Empty `<a id>` at the start of a heading: the CMS adds a `<br />` |
-| Simple inline `style="width:100%"` | `<link rel="stylesheet">` to a hosted file: **untested.** If it's stripped, nothing shows. |
+| Simple inline `style="width:100%"` | `<link rel="stylesheet">` to a hosted file: **untested.** If it's stripped, the page falls back to plain Bootstrap styling. |
+| | `<details>`/`<summary>` (FAQ and "Show the lab calendar"): **untested.** If stripped, the answers and calendar just show expanded. |
+| | Pannellum URL options: `autoRotateStopDelay` is **not** accepted in the URL (the viewer shows an error), so the hero uses plain `autoRotate=-2` (rotates until someone clicks or drags it). |
 
 **Other gotchas**
 

@@ -12,7 +12,8 @@
   the CMS. Everything else in this file is preview scaffolding.
 
   Preview options (add to the address bar):
-    ?wide    full-width layout (no sidebar), the template setting the web team can switch on
+    ?sidebar the current template with the "Related" sidebar (the page is designed for
+             full width; the web team switches the template for launch)
     ?bare    hide the site header and footer
   The header and footer come from preview/site-chrome.js (regenerate with
   node tools/update-chrome.js --live).
@@ -31,7 +32,7 @@
 
 <aside aria-label="Preview notice" style="position:fixed;left:12px;bottom:12px;z-index:3000;max-width:calc(100% - 24px);background:#fff3cd;color:#3d2f00;border:1px solid #e0c200;border-radius:8px;padding:6px 12px;font:13px/1.4 system-ui,sans-serif;box-shadow:0 2px 8px rgba(0,0,0,.25)">
   <strong>XR Lab preview</strong> with the live lonestar.edu header, footer, and stylesheets.
-  <a href="?bare">Hide header/footer</a> &middot; <a href="?wide" id="layout-toggle">Switch to full width</a>
+  <a href="?bare">Hide header/footer</a> &middot; <a href="?sidebar" id="layout-toggle">Show with sidebar</a>
 </aside>
 
 <main id="main-body">
@@ -64,27 +65,34 @@
 <link href="https://lone-star-xr-lab.github.io/xr-website/css/xr-lab.css" rel="stylesheet" />
 <div class="xr-page">
 <p><a id="BackToTop" name="BackToTop"></a></p>
-<!-- Layout uses the same Bootstrap 5.3 + Font Awesome classes as the Tomball 3.0 page (no inline styles). --><!-- ========================= --><!--          HERO             --><!-- ========================= --><!-- 360 panorama hosted on GitHub Pages (progress360 repo), shown with the Pannellum viewer. The iframe title is the screen-reader description. -->
+<!-- Designed for the CMS full-width (no sidebar) template. Bootstrap 5.3 + Font Awesome classes, plus xr-lab.css. --><!-- ========================= --><!--          HERO             --><!-- ========================= --><!-- 360 panorama hosted on GitHub Pages (progress360 repo), shown with the Pannellum viewer. The iframe title is the screen-reader description. Auto-rotates slowly; clicking or dragging the view stops it. -->
 
 <div class="mb-4 overflow-hidden rounded xr-dark shadow-sm">
-<p class="mb-0 ratio ratio-16x9"><iframe allowfullscreen="" height="400" src="https://cdn.pannellum.org/2.5/pannellum.htm#panorama=https://lone-star-xr-lab.github.io/progress360/assets/xr-lab/001-xr-lab.jpg&amp;autoLoad=true&amp;autoRotate=-2&amp;pitch=-5&amp;yaw=-220&amp;hfov=120" title="360&deg; view of the XR Lab in East Hall, Room E251: blue and white walls, an open central floor for VR stations, and desks along the walls with iPads and VR headsets"></iframe></p>
+<p class="mb-0 ratio ratio-21x9 xr-hero-360"><iframe allowfullscreen="" height="400" src="https://cdn.pannellum.org/2.5/pannellum.htm#panorama=https://lone-star-xr-lab.github.io/progress360/assets/xr-lab/001-xr-lab.jpg&amp;autoLoad=true&amp;autoRotate=-2&amp;pitch=-5&amp;yaw=-220&amp;hfov=120" title="360&deg; view of the XR Lab in East Hall, Room E251: blue and white walls, an open central floor for VR stations, and desks along the walls with iPads and VR headsets"></iframe></p>
 
-<div class="align-items-center g-3 px-4 py-3 row">
-<div class="col-xl-6">
-<p class="align-items-center d-flex gap-3 mb-0"><img alt="XR Lab logo" class="xr-logo" src="https://lone-star-xr-lab.github.io/xr-website/images/xr-lab-logo.png" /> <span class="fs-4 fw-bold lh-sm text-white">Explore virtual, augmented, and mixed reality. No experience required.</span></p>
+<!-- Navy bar: logo fills its full height on the left (xr-hero-logo in xr-lab.css). width/height attributes keep it small if the stylesheet doesn't load. -->
+<div class="d-flex flex-column flex-md-row xr-hero-bar">
+<p class="mb-0 xr-hero-logo"><img alt="XR Lab logo" height="160" src="https://lone-star-xr-lab.github.io/xr-website/images/xr-lab-logo.png" width="160" /></p>
+
+<div class="align-items-center flex-grow-1 g-3 mx-0 px-3 py-4 row">
+<div class="col-lg-7">
+<p class="fs-3 fw-bold lh-sm mb-0 text-white">Explore virtual, augmented, and mixed reality. No experience required.</p>
 </div>
 
-<div class="col-xl-6">
-<p class="d-flex flex-wrap gap-2 justify-content-xl-end mb-0"><a class="btn btn-xr rounded-pill px-4" href="https://outlook.office.com/book/XRLabBooking@mylonestar.onmicrosoft.com/?ismsaljsauthenabled" rel="noopener" target="_blank">Book the Lab</a> <a class="btn btn-xr-outline rounded-pill px-4" href="https://outlook.office.com/book/XRLabConsultation@mylonestar.onmicrosoft.com/s/IIC2doJv1kqdJg-fyLMMJw2?ismsaljsauthenabled" rel="noopener" target="_blank">Schedule a Consultation</a> <a class="btn btn-xr-outline rounded-pill px-4" href="https://cdn.pannellum.org/2.5/pannellum.htm#panorama=https://lone-star-xr-lab.github.io/progress360/assets/xr-lab/001-xr-lab.jpg&amp;autoLoad=true" rel="noopener" target="_blank"><i aria-hidden="true" class="fa-expand fas me-1"></i> Full-Screen 360&deg;</a></p>
+<div class="col-lg-5">
+<p class="d-flex flex-wrap gap-2 justify-content-lg-end mb-2"><a class="btn btn-xr btn-lg rounded-pill px-4" href="https://outlook.office.com/book/XRLabBooking@mylonestar.onmicrosoft.com/?ismsaljsauthenabled" rel="noopener" target="_blank">Book the Lab</a> <a class="btn btn-xr-outline btn-lg rounded-pill px-4" href="https://outlook.office.com/book/XRLabConsultation@mylonestar.onmicrosoft.com/s/IIC2doJv1kqdJg-fyLMMJw2?ismsaljsauthenabled" rel="noopener" target="_blank">Schedule a Consultation</a></p>
+
+<p class="mb-0 small text-lg-end"><a class="text-white" href="https://cdn.pannellum.org/2.5/pannellum.htm#panorama=https://lone-star-xr-lab.github.io/progress360/assets/xr-lab/001-xr-lab.jpg&amp;autoLoad=true" rel="noopener" target="_blank"><i aria-hidden="true" class="fa-expand fas me-1"></i> View the 360&deg; tour full screen</a></p>
+</div>
 </div>
 </div>
 </div>
 <!-- ========================= --><!--       NAVIGATION          --><!-- ========================= -->
 
 <div class="mb-3 p-3 rounded xr-dark">
-<p class="d-flex flex-wrap gap-4 justify-content-center mb-0"><a class="text-white fw-bold" href="#start-here"><i aria-hidden="true" class="fa-compass fas me-1"></i> Start Here</a><a class="text-white fw-bold" href="#lab-hours"><i aria-hidden="true" class="fa-clock fas me-1"></i> Hours</a><a class="text-white fw-bold" href="#classes"><i aria-hidden="true" class="fa-chalkboard-teacher fas me-1"></i> Classes</a><a class="text-white fw-bold" href="#apps"><i aria-hidden="true" class="fa-vr-cardboard fas me-1"></i> Apps</a><a class="text-white fw-bold" href="#lab-calendar"><i aria-hidden="true" class="fa-calendar-alt fas me-1"></i> Calendar</a><a class="text-white fw-bold" href="#events"><i aria-hidden="true" class="fa-star fas me-1"></i> Events</a><a class="text-white fw-bold" href="#faq"><i aria-hidden="true" class="fa-question-circle fas me-1"></i> FAQ</a></p>
+<p class="d-flex flex-wrap gap-4 justify-content-center mb-0"><a class="text-white fw-bold" href="#start-here"><i aria-hidden="true" class="fa-compass fas me-1"></i> Start Here</a><a class="text-white fw-bold" href="#lab-hours"><i aria-hidden="true" class="fa-clock fas me-1"></i> Hours</a><a class="text-white fw-bold" href="#before-you-visit"><i aria-hidden="true" class="fa-hand-sparkles fas me-1"></i> Before You Visit</a><a class="text-white fw-bold" href="#classes"><i aria-hidden="true" class="fa-chalkboard-teacher fas me-1"></i> Classes</a><a class="text-white fw-bold" href="#apps"><i aria-hidden="true" class="fa-vr-cardboard fas me-1"></i> Apps</a><a class="text-white fw-bold" href="#lab-calendar"><i aria-hidden="true" class="fa-calendar-alt fas me-1"></i> Calendar</a><a class="text-white fw-bold" href="#events"><i aria-hidden="true" class="fa-star fas me-1"></i> Events</a><a class="text-white fw-bold" href="#faq"><i aria-hidden="true" class="fa-question-circle fas me-1"></i> FAQ</a></p>
 </div>
-<!-- ========================= --><!--       QUICK FACTS         --><!-- ========================= --><!-- Update hours here AND in the Lab Hours table, Visiting table, and FAQ. -->
+<!-- ========================= --><!--       QUICK FACTS         --><!-- ========================= --><!-- Hours appear in two places only: here and the Lab Hours table. Update both. -->
 
 <div class="xr-soft mb-5 px-4 py-3 rounded">
 <div class="g-3 row">
@@ -93,7 +101,7 @@
 </div>
 
 <div class="col-md-4">
-<p class="align-items-center d-flex gap-3 mb-0"><i aria-hidden="true" class="fa-clock fa-fw fa-lg fas xr-accent"></i> <span><span class="d-block fw-bold small text-body-secondary text-uppercase">Open Lab</span> <span class="d-block fw-bold">Mon&ndash;Thu, 9:00 AM&ndash;4:00 PM</span> <span class="d-block small text-body-secondary">Fridays by request</span></span></p>
+<p class="align-items-center d-flex gap-3 mb-0"><i aria-hidden="true" class="fa-clock fa-fw fa-lg fas xr-accent"></i> <span><span class="d-block fw-bold small text-body-secondary text-uppercase">Open Lab</span> <span class="d-block fw-bold text-nowrap">Mon&ndash;Thu, 9:00 AM&ndash;4:00 PM</span> <span class="d-block small text-body-secondary">Fridays by request</span></span></p>
 </div>
 
 <div class="col-md-4">
@@ -182,7 +190,7 @@
 </div>
 
 <div class="col-lg-5">
-<div class="border-0 card h-100 rounded shadow-sm xr-dark">
+<div class="border-0 card rounded shadow-sm xr-dark">
 <div class="card-body p-4">
 <p class="fw-bold mb-2 small text-uppercase xr-gold">What is XR?</p>
 
@@ -202,40 +210,44 @@
 <h3 class="fw-bold h5 mb-3">Common Uses</h3>
 
 <div class="g-2 row">
-<div class="col-md-6">
-<p class="mb-2"><i aria-hidden="true" class="fa-check fas me-2 xr-accent"></i> VR games and recreational experiences</p>
+<div class="col-md-6 col-lg-3">
+<p class="align-items-start d-flex gap-2 mb-2 xr-iconrow"><i aria-hidden="true" class="fa-check fas xr-accent"></i> <span>VR games and recreational experiences</span></p>
 
-<p class="mb-2"><i aria-hidden="true" class="fa-check fas me-2 xr-accent"></i> Virtual field trips and immersive environments</p>
-
-<p class="mb-2"><i aria-hidden="true" class="fa-check fas me-2 xr-accent"></i> Skills practice and simulations</p>
-
-<p class="mb-2"><i aria-hidden="true" class="fa-check fas me-2 xr-accent"></i> Visualization of complex concepts</p>
+<p class="align-items-start d-flex gap-2 mb-2 xr-iconrow"><i aria-hidden="true" class="fa-check fas xr-accent"></i> <span>Virtual field trips and immersive environments</span></p>
 </div>
 
-<div class="col-md-6">
-<p class="mb-2"><i aria-hidden="true" class="fa-check fas me-2 xr-accent"></i> Immersive storytelling, history, and creative experiences</p>
+<div class="col-md-6 col-lg-3">
+<p class="align-items-start d-flex gap-2 mb-2 xr-iconrow"><i aria-hidden="true" class="fa-check fas xr-accent"></i> <span>Skills practice and simulations</span></p>
 
-<p class="mb-2"><i aria-hidden="true" class="fa-check fas me-2 xr-accent"></i> Classroom demonstrations and guided activities</p>
+<p class="align-items-start d-flex gap-2 mb-2 xr-iconrow"><i aria-hidden="true" class="fa-check fas xr-accent"></i> <span>Visualization of complex concepts</span></p>
+</div>
 
-<p class="mb-2"><i aria-hidden="true" class="fa-check fas me-2 xr-accent"></i> Faculty and staff training</p>
+<div class="col-md-6 col-lg-3">
+<p class="align-items-start d-flex gap-2 mb-2 xr-iconrow"><i aria-hidden="true" class="fa-check fas xr-accent"></i> <span>Immersive storytelling, history, and creative experiences</span></p>
 
-<p class="mb-2"><i aria-hidden="true" class="fa-check fas me-2 xr-accent"></i> Student projects, workshops, and special events</p>
+<p class="align-items-start d-flex gap-2 mb-2 xr-iconrow"><i aria-hidden="true" class="fa-check fas xr-accent"></i> <span>Classroom demonstrations and guided activities</span></p>
+</div>
+
+<div class="col-md-6 col-lg-3">
+<p class="align-items-start d-flex gap-2 mb-2 xr-iconrow"><i aria-hidden="true" class="fa-check fas xr-accent"></i> <span>Faculty and staff training</span></p>
+
+<p class="align-items-start d-flex gap-2 mb-2 xr-iconrow"><i aria-hidden="true" class="fa-check fas xr-accent"></i> <span>Student projects, workshops, and special events</span></p>
 </div>
 </div>
 </div>
-<!-- ========================= --><!--        LAB HOURS          --><!-- ========================= -->
+<!-- ========================= --><!--    HOURS & RESERVING      --><!-- ========================= --><!-- The hours table is the one full list of hours. The quick facts row near the top is the only other place they appear. -->
 
-<div class="g-4 g-lg-5 mb-5 row">
-<div class="col-lg-5">
-<p class="mb-2 xr-eyebrow"><a id="lab-hours">Lab Hours</a></p>
+<p class="mb-2 xr-eyebrow"><a id="lab-hours">Hours and Reserving</a></p>
 
 <h2 class="pt-0">When to visit</h2>
 
+<div class="g-4 g-lg-5 mb-5 row">
+<div class="col-lg-4">
 <table class="table table-striped xr-table">
 	<thead>
 		<tr>
 			<th scope="col">Day</th>
-			<th scope="col">Hours</th>
+			<th scope="col">Open Lab Hours</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -269,25 +281,87 @@
 <p class="mb-0 small text-body-secondary"><i>Hours may change for holidays, scheduled classes, training, special events, and summer or term breaks. Check the <a href="#lab-calendar">Lab Calendar</a> for current availability.</i></p>
 </div>
 
-<div class="col-lg-7">
+<div class="col-lg-8">
 <div class="xr-soft h-100 p-4 rounded">
-<h3 class="fw-bold h5 mb-3">Before You Come</h3>
+<h3 class="fw-bold h5 mb-3" id="visiting">Which option should I use?</h3>
 
-<p class="align-items-start d-flex gap-3 mb-3 pt-0"><i aria-hidden="true" class="fa-fw fa-hand-sparkles fas mt-1 xr-accent"></i> <span><strong>First time?</strong> No experience needed. We'll help with headset fit, controls, boundaries, and basic navigation.</span></p>
-
-<p class="align-items-start d-flex gap-3 mb-3 pt-0"><i aria-hidden="true" class="fa-fw fa-id-card fas mt-1 xr-accent"></i> <span><strong>Sign in:</strong> Students and staff sign in at the lab with their LSC ID or LSC email. Guests are welcome too.</span></p>
-
-<p class="align-items-start d-flex gap-3 mb-3 pt-0"><i aria-hidden="true" class="fa-fw fa-glasses fas mt-1 xr-accent"></i> <span><strong>Glasses:</strong> The headsets are set up to fit glasses, so wear yours.</span></p>
-
-<p class="align-items-start d-flex gap-3 mb-3 pt-0"><i aria-hidden="true" class="fa-fw fa-hourglass-half fas mt-1 xr-accent"></i> <span><strong>Time:</strong> When the lab is busy, headset sessions may be limited to 30 minutes so everyone gets a turn.</span></p>
-
-<p class="align-items-start d-flex gap-3 mb-0"><i aria-hidden="true" class="fa-chair fa-fw fas mt-1 xr-accent"></i> <span><strong>Comfort:</strong> Many experiences can be used seated or adjusted for comfort, and you can take a break or stop at any time.</span></p>
+<table class="table mb-0 xr-table">
+	<thead>
+		<tr>
+			<th scope="col">You are&hellip;</th>
+			<th scope="col">What to do</th>
+			<th scope="col">Link</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th scope="row">A student exploring on your own</th>
+			<td>Walk in during Open Lab hours when the lab isn't reserved. Check the calendar first.</td>
+			<td><a href="#lab-calendar">Lab Calendar</a></td>
+		</tr>
+		<tr>
+			<th scope="row">Faculty or staff planning something</th>
+			<td>Book a consultation to choose an app, test it, or get training.</td>
+			<td><a href="https://outlook.office.com/book/XRLabConsultation@mylonestar.onmicrosoft.com/s/IIC2doJv1kqdJg-fyLMMJw2?ismsaljsauthenabled" rel="noopener" target="_blank">Consultation</a></td>
+		</tr>
+		<tr>
+			<th scope="row">Bringing a class, group, or event</th>
+			<td>Reserve the space at least 1 week ahead so equipment can be prepared.</td>
+			<td><a href="https://outlook.office.com/book/XRLabBooking@mylonestar.onmicrosoft.com/?ismsaljsauthenabled" rel="noopener" target="_blank">Booking Page</a></td>
+		</tr>
+		<tr>
+			<th scope="row">Needing a Friday visit</th>
+			<td>Fridays are by request. Book or email with your preferred time.</td>
+			<td><a href="mailto:TC-XRLab@lonestar.edu">Email the lab</a></td>
+		</tr>
+	</tbody>
+</table>
 </div>
 </div>
 </div>
-<!-- ========================= --><!--         CLASSES           --><!-- ========================= --><!-- One card per class example. Copy a col-md-6 col-lg-4 block to add another. -->
+<!-- ========================= --><!--     BEFORE YOU VISIT      --><!-- ========================= --><!-- Combines the former "Before You Come" and "Health and Safety" sections. -->
 
 <div class="xr-soft mb-5 p-4 p-md-5 rounded">
+<p class="mb-2 xr-eyebrow"><a id="before-you-visit">Before You Visit</a></p>
+
+<h2 class="pt-0">What to know before you put on a headset</h2>
+
+<div class="g-4 g-lg-5 row">
+<div class="col-lg-4">
+<h3 class="fw-bold h5 mb-3">Getting started</h3>
+
+<p class="align-items-start d-flex gap-3 mb-3 pt-0 xr-iconrow"><i aria-hidden="true" class="fa-fw fa-hand-sparkles fas xr-accent"></i> <span><strong>First time?</strong> No experience needed. We'll help with headset fit, controls, boundaries, and basic navigation.</span></p>
+
+<p class="align-items-start d-flex gap-3 mb-3 pt-0 xr-iconrow"><i aria-hidden="true" class="fa-fw fa-id-card fas xr-accent"></i> <span><strong>Sign in:</strong> Students and staff sign in at the lab with their LSC ID or LSC email. Guests are welcome too.</span></p>
+
+<p class="align-items-start d-flex gap-3 mb-3 pt-0 xr-iconrow"><i aria-hidden="true" class="fa-fw fa-glasses fas xr-accent"></i> <span><strong>Glasses:</strong> The headsets are set up to fit glasses, so wear yours.</span></p>
+
+<p class="align-items-start d-flex gap-3 mb-0 xr-iconrow"><i aria-hidden="true" class="fa-fw fa-hourglass-half fas xr-accent"></i> <span><strong>Time:</strong> When the lab is busy, headset sessions may be limited to 30 minutes so everyone gets a turn.</span></p>
+</div>
+
+<div class="col-lg-8">
+<h3 class="fw-bold h5 mb-3">Health, safety, and comfort</h3>
+
+<div class="g-4 row">
+<div class="col-md-6">
+<p class="align-items-start d-flex gap-3 mb-3 pt-0 xr-iconrow"><i aria-hidden="true" class="fa-dizzy fa-fw fas xr-accent"></i> <span><strong>Motion sickness:</strong> Some people feel dizzy or nauseated in VR. Start with short, low-motion experiences and stop right away if you feel unwell.</span></p>
+
+<p class="align-items-start d-flex gap-3 mb-3 pt-0 xr-iconrow"><i aria-hidden="true" class="fa-bolt fa-fw fas xr-accent"></i> <span><strong>Seizure warning:</strong> VR can trigger seizures or blackouts in people with photosensitive epilepsy. If you have a history of seizures, talk to lab staff or your doctor before using a headset.</span></p>
+
+<p class="align-items-start d-flex gap-3 mb-0 xr-iconrow"><i aria-hidden="true" class="fa-child fa-fw fas xr-accent"></i> <span><strong>Age:</strong> Headset users should be 10 or older, following Meta's age guidelines for Quest headsets. Younger children may use the lab with supervision from a parent or guardian.</span></p>
+</div>
+
+<div class="col-md-6">
+<p class="align-items-start d-flex gap-3 mb-3 pt-0 xr-iconrow"><i aria-hidden="true" class="fa-fw fa-pump-soap fas xr-accent"></i> <span><strong>Cleaning:</strong> Please wipe down the headset and controllers after each use with the alcohol wipes or spray provided. Staff also cleans each headset again after use. Lenses are cleaned separately without alcohol, which can damage them, so leave the lenses to staff. Headsets use silicone face gaskets that can be wiped clean, and disposable face masks are available if you would like one.</span></p>
+
+<p class="align-items-start d-flex gap-3 mb-0 xr-iconrow"><i aria-hidden="true" class="fa-fw fa-universal-access fas xr-accent"></i> <span><strong>Comfort and accommodations:</strong> Many experiences can be used seated, and you can take a break or stop at any time. Alternative participation (such as watching and directing from an iPad) and extra breaks can be arranged. Students with an approved accommodation can also contact LSC Accessibility Services.</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ========================= --><!--         CLASSES           --><!-- ========================= --><!-- One card per class example. Copy a col block to add another; five fit in one row on wide screens. -->
+
 <p class="mb-2 xr-eyebrow"><a id="classes">XR in the Classroom</a></p>
 
 <h2 class="pt-0">How classes use the lab</h2>
@@ -295,7 +369,7 @@
 <p class="fs-5 mb-4 text-body-secondary">You do not need to be an XR expert to bring a class in. The lab can help you find and test experiences, prepare equipment, introduce students to the headsets, cast headset views, and troubleshoot during the session.</p>
 
 <div class="g-4 mb-4 row">
-<div class="col-md-6 col-lg-4">
+<div class="col-md-6 col-lg-4 col-xl">
 <div class="card xr-card h-100 rounded shadow-sm">
 <div class="card-body p-4">
 <p class="align-items-center d-flex fw-bold gap-2 mb-3 small xr-accent text-uppercase"><i aria-hidden="true" class="fa-globe-americas fas"></i> Environmental Science</p>
@@ -307,7 +381,7 @@
 </div>
 </div>
 
-<div class="col-md-6 col-lg-4">
+<div class="col-md-6 col-lg-4 col-xl">
 <div class="card xr-card h-100 rounded shadow-sm">
 <div class="card-body p-4">
 <p class="align-items-center d-flex fw-bold gap-2 mb-3 small xr-accent text-uppercase"><i aria-hidden="true" class="fa-snowflake fas"></i> Environmental Science</p>
@@ -319,7 +393,7 @@
 </div>
 </div>
 
-<div class="col-md-6 col-lg-4">
+<div class="col-md-6 col-lg-4 col-xl">
 <div class="card xr-card h-100 rounded shadow-sm">
 <div class="card-body p-4">
 <p class="align-items-center d-flex fw-bold gap-2 mb-3 small xr-accent text-uppercase"><i aria-hidden="true" class="fa-heartbeat fas"></i> Anatomy &amp; Physiology</p>
@@ -331,7 +405,7 @@
 </div>
 </div>
 
-<div class="col-md-6 col-lg-4">
+<div class="col-md-6 col-lg-6 col-xl">
 <div class="card xr-card h-100 rounded shadow-sm">
 <div class="card-body p-4">
 <p class="align-items-center d-flex fw-bold gap-2 mb-3 small xr-accent text-uppercase"><i aria-hidden="true" class="fa-book-open fas"></i> English</p>
@@ -343,7 +417,7 @@
 </div>
 </div>
 
-<div class="col-md-6 col-lg-4">
+<div class="col-md-12 col-lg-6 col-xl">
 <div class="card xr-card h-100 rounded shadow-sm">
 <div class="card-body p-4">
 <p class="align-items-center d-flex fw-bold gap-2 mb-3 small xr-accent text-uppercase"><i aria-hidden="true" class="fa-landmark fas"></i> History</p>
@@ -356,9 +430,18 @@
 </div>
 </div>
 
-<p class="mb-3 pt-0">Class visits can range from a short demonstration to a full session. The lab runs <strong>8 headsets at a time</strong>; larger classes rotate in groups, with other students watching on the iPads or Vibe Board or working on a related activity.</p>
+<div class="mb-5 p-4 rounded xr-dark">
+<div class="align-items-center g-3 row">
+<div class="col-lg-8">
+<p class="text-white mb-2 pt-0">Class visits can range from a short demonstration to a full session. The lab runs <strong>8 headsets at a time</strong>; larger classes rotate in groups, with other students watching on the iPads or Vibe Board or working on a related activity.</p>
 
-<p class="mb-0"><strong>Want to build something similar for your course?</strong> Tell us what you want students to learn, practice, or experience. <a class="btn btn-xr rounded-pill px-4 ms-md-2 mt-2 mt-md-0" href="https://outlook.office.com/book/XRLabConsultation@mylonestar.onmicrosoft.com/s/IIC2doJv1kqdJg-fyLMMJw2?ismsaljsauthenabled" rel="noopener" target="_blank">Schedule a Consultation</a></p>
+<p class="mb-0 text-white"><strong>Want to build something similar for your course?</strong> Tell us what you want students to learn, practice, or experience.</p>
+</div>
+
+<div class="col-lg-4 text-lg-end">
+<p class="mb-0"><a class="btn btn-xr rounded-pill px-4" href="https://outlook.office.com/book/XRLabConsultation@mylonestar.onmicrosoft.com/s/IIC2doJv1kqdJg-fyLMMJw2?ismsaljsauthenabled" rel="noopener" target="_blank">Schedule a Consultation</a></p>
+</div>
+</div>
 </div>
 <!-- ========================= --><!--        EQUIPMENT          --><!-- ========================= -->
 
@@ -372,11 +455,11 @@
 <div class="col-md-4">
 <div class="card h-100 rounded text-center xr-card">
 <div class="card-body p-4">
-<p class="mb-3 mx-auto xr-icon-circle"><i aria-hidden="true" class="fa-vr-cardboard fas"></i></p>
+<p class="mb-1 xr-stat">8</p>
 
-<p class="fs-4 fw-bold mb-1">8 Meta Quest 3</p>
+<p class="fs-5 fw-bold mb-1">Meta Quest 3 headsets</p>
 
-<p class="mb-0 small text-body-secondary">Headsets for student and class use</p>
+<p class="mb-0 small text-body-secondary">For student and class use</p>
 </div>
 </div>
 </div>
@@ -384,9 +467,9 @@
 <div class="col-md-4">
 <div class="card h-100 rounded text-center xr-card">
 <div class="card-body p-4">
-<p class="mb-3 mx-auto xr-icon-circle"><i aria-hidden="true" class="fa-tablet-alt fas"></i></p>
+<p class="mb-1 xr-stat">8</p>
 
-<p class="fs-4 fw-bold mb-1">8 iPads</p>
+<p class="fs-5 fw-bold mb-1">iPads</p>
 
 <p class="mb-0 small text-body-secondary">For casting headset views during classes and lab sessions</p>
 </div>
@@ -396,9 +479,9 @@
 <div class="col-md-4">
 <div class="card h-100 rounded text-center xr-card">
 <div class="card-body p-4">
-<p class="mb-3 mx-auto xr-icon-circle"><i aria-hidden="true" class="fa-chalkboard fas"></i></p>
+<p class="mb-1 xr-stat">1</p>
 
-<p class="fs-4 fw-bold mb-1">Vibe Board</p>
+<p class="fs-5 fw-bold mb-1">Vibe Board</p>
 
 <p class="mb-0 small text-body-secondary">For casting, demonstrations, presentations, and collaborative activities</p>
 </div>
@@ -468,151 +551,121 @@
 </div>
 </div>
 </div>
-<!-- ========================= --><!--    VISITING & RESERVING   --><!-- ========================= -->
-
-<div class="xr-soft mb-5 p-4 p-md-5 rounded">
-<p class="mb-2 xr-eyebrow"><a id="visiting">Visiting and Reserving</a></p>
-
-<h2 class="pt-0">Which option should I use?</h2>
-
-<table class="table mb-0 xr-table">
-	<thead>
-		<tr>
-			<th scope="col">You are&hellip;</th>
-			<th scope="col">What to do</th>
-			<th scope="col">Link</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<th scope="row">A student exploring on your own</th>
-			<td>Walk in Monday&ndash;Thursday, 9:00 AM&ndash;4:00 PM, when the lab isn't reserved. Check the calendar first.</td>
-			<td><a href="#lab-calendar">Lab Calendar</a></td>
-		</tr>
-		<tr>
-			<th scope="row">Faculty or staff planning something</th>
-			<td>Book a consultation to choose an app, test it, or get training.</td>
-			<td><a href="https://outlook.office.com/book/XRLabConsultation@mylonestar.onmicrosoft.com/s/IIC2doJv1kqdJg-fyLMMJw2?ismsaljsauthenabled" rel="noopener" target="_blank">Consultation</a></td>
-		</tr>
-		<tr>
-			<th scope="row">Bringing a class, group, or event</th>
-			<td>Reserve the space at least 1 week ahead so equipment can be prepared.</td>
-			<td><a href="https://outlook.office.com/book/XRLabBooking@mylonestar.onmicrosoft.com/?ismsaljsauthenabled" rel="noopener" target="_blank">Booking Page</a></td>
-		</tr>
-		<tr>
-			<th scope="row">Needing a Friday visit</th>
-			<td>Fridays are by request. Book or email with your preferred time.</td>
-			<td><a href="mailto:TC-XRLab@lonestar.edu">Email the lab</a></td>
-		</tr>
-	</tbody>
-</table>
-</div>
-<!-- ========================= --><!--     HEALTH & SAFETY       --><!-- ========================= -->
-
-<p class="mb-2 xr-eyebrow"><a id="safety">Health and Safety</a></p>
-
-<h2 class="pt-0">Stay safe and comfortable</h2>
-
-<div class="g-4 mb-5 row">
-<div class="col-md-6">
-<p class="align-items-start d-flex gap-3 mb-3 pt-0"><i aria-hidden="true" class="fa-dizzy fa-fw fa-lg fas mt-1 xr-accent"></i> <span><strong>Motion sickness:</strong> Some people feel dizzy or nauseated in VR. Start with short, low-motion experiences and stop right away if you feel unwell.</span></p>
-
-<p class="align-items-start d-flex gap-3 mb-3 pt-0"><i aria-hidden="true" class="fa-bolt fa-fw fa-lg fas mt-1 xr-accent"></i> <span><strong>Seizure warning:</strong> VR can trigger seizures or blackouts in people with photosensitive epilepsy. If you have a history of seizures, talk to lab staff or your doctor before using a headset.</span></p>
-
-<p class="align-items-start d-flex gap-3 mb-0"><i aria-hidden="true" class="fa-child fa-fw fa-lg fas mt-1 xr-accent"></i> <span><strong>Age:</strong> Headset users should be 10 or older, following Meta's age guidelines for Quest headsets. Younger children may use the lab with supervision from a parent or guardian.</span></p>
-</div>
-
-<div class="col-md-6">
-<p class="align-items-start d-flex gap-3 mb-3 pt-0"><i aria-hidden="true" class="fa-fw fa-lg fa-pump-soap fas mt-1 xr-accent"></i> <span><strong>Cleaning:</strong> Please wipe down the headset and controllers after each use with the alcohol wipes or spray provided. Staff also cleans each headset again after use. Lenses are cleaned separately without alcohol, which can damage them, so leave the lenses to staff. Headsets use silicone face gaskets that can be wiped clean, and disposable face masks are available if you would like one.</span></p>
-
-<p class="align-items-start d-flex gap-3 mb-0"><i aria-hidden="true" class="fa-fw fa-lg fa-universal-access fas mt-1 xr-accent"></i> <span><strong>Accommodations:</strong> Seated play, alternative participation (such as watching and directing from an iPad), and extra breaks can be arranged. Students with an approved accommodation can also contact LSC Accessibility Services.</span></p>
-</div>
-</div>
-<!-- ========================= --><!--        CALENDAR           --><!-- ========================= --><!-- Published Outlook calendar for the XR Lab. Reservations are managed in Outlook, not here. -->
+<!-- ========================= --><!--   CALENDAR & EVENTS       --><!-- ========================= --><!-- Calendar: published Outlook calendar, collapsed behind a "Show" button (a <details> element: no script needed; if the CMS strips it, the calendar simply shows). Events: widget hosted on GitHub Pages (xr-lab-events repo), edited there. -->
 
 <p class="mb-2 xr-eyebrow"><a id="lab-calendar">Lab Calendar</a></p>
 
 <h2 class="pt-0">Check availability</h2>
 
-<p class="fs-5 text-body-secondary mb-3 pt-0">Times shown are reserved for classes or events. Walk-ins are welcome during Open Lab hours outside those times.</p>
+<p class="text-body-secondary mb-3 pt-0">Times shown are reserved for classes or events. Walk-ins are welcome during Open Lab hours outside those times.</p>
 
-<p><iframe height="800" loading="lazy" src="https://outlook.office365.com/owa/calendar/bf86e4ba3b7a4579871f320d8532237e@lonestar.edu/572824c1771447c5bb19ea4578eb162813983267703408775056/calendar.html" title="XR Lab calendar" width="100%"></iframe></p>
+<details class="mb-2 xr-reveal">
+<summary><span class="xr-when-closed"><i aria-hidden="true" class="fa-calendar-alt fas me-2"></i>Show the lab calendar</span><span class="xr-when-open"><i aria-hidden="true" class="fa-times fas me-2"></i>Hide the lab calendar</span></summary>
 
-<p class="mb-5 small text-center"><a href="https://outlook.office365.com/owa/calendar/bf86e4ba3b7a4579871f320d8532237e@lonestar.edu/572824c1771447c5bb19ea4578eb162813983267703408775056/calendar.html" rel="noopener noreferrer" target="_blank">Open the Lab Calendar in a New Window</a></p>
-<!-- ========================= --><!--         EVENTS            --><!-- ========================= --><!-- Widget hosted on GitHub Pages (xr-lab-events repo). Content is edited there, not here. -->
+<p class="mt-3"><iframe class="rounded xr-frame" height="750" loading="lazy" src="https://outlook.office365.com/owa/calendar/bf86e4ba3b7a4579871f320d8532237e@lonestar.edu/572824c1771447c5bb19ea4578eb162813983267703408775056/calendar.html" title="XR Lab calendar" width="100%"></iframe></p>
+</details>
+
+<p class="mb-5 small"><a href="https://outlook.office365.com/owa/calendar/bf86e4ba3b7a4579871f320d8532237e@lonestar.edu/572824c1771447c5bb19ea4578eb162813983267703408775056/calendar.html" rel="noopener noreferrer" target="_blank">Open the Lab Calendar in a New Window</a></p>
+<!-- ========================= --><!--          EVENTS           --><!-- ========================= --><!-- Widget hosted on GitHub Pages (xr-lab-events repo), edited there. The frame scrolls if there are more events than fit. -->
 
 <div class="xr-soft mb-5 p-4 p-md-5 rounded">
+<div class="g-4 g-lg-5 row">
+<div class="col-lg-4">
 <p class="mb-2 xr-eyebrow"><a id="events">Programs and Events</a></p>
 
 <h2 class="pt-0">Workshops and events</h2>
 
-<p class="fs-5 text-body-secondary mb-3 pt-0">The XR Lab hosts workshops, demonstrations, game sessions, and other special events throughout the semester.</p>
+<p class="text-body-secondary mb-3 pt-0">Workshops, demonstrations, game sessions, and other special events throughout the semester.</p>
 
-<p><iframe height="1200" loading="lazy" src="https://lone-star-xr-lab.github.io/xr-lab-events/" title="XR Lab Upcoming Events" width="100%"></iframe></p>
-
-<p class="mb-0 small text-center"><a href="https://lone-star-xr-lab.github.io/xr-lab-events/" rel="noopener noreferrer" target="_blank">Open Upcoming Events in a New Window</a></p>
+<p class="mb-0 small"><a href="https://lone-star-xr-lab.github.io/xr-lab-events/" rel="noopener noreferrer" target="_blank">Open Upcoming Events in a New Window</a></p>
 </div>
-<!-- ========================= --><!--           FAQ             --><!-- ========================= -->
+
+<div class="col-lg-8">
+<p class="mb-0"><iframe class="bg-white rounded xr-frame" height="380" loading="lazy" src="https://lone-star-xr-lab.github.io/xr-lab-events/" title="XR Lab Upcoming Events" width="100%"></iframe></p>
+</div>
+</div>
+</div>
+<!-- ========================= --><!--           FAQ             --><!-- ========================= --><!-- Each question is a <details> element: click to expand, no script needed. If the CMS strips it, the answers simply show. -->
 
 <p class="mb-2 xr-eyebrow"><a id="faq">FAQ</a></p>
 
 <h2 class="pt-0">Frequently asked questions</h2>
 
-<div class="g-4 mb-5 row">
-<div class="col-md-6">
-<h3 class="fw-bold h6 mb-1">Can I wear glasses with the headsets?</h3>
+<div class="g-0 gx-lg-5 mb-5 row">
+<div class="col-lg-6">
+<details class="xr-accordion">
+<summary>Can I wear glasses with the headsets?</summary>
 
-<p class="small text-body-secondary mb-3 pt-0">Yes. The lab's headsets are set up to fit glasses. Let us know if you need help getting a comfortable fit.</p>
+<p class="mb-0 pt-0">Yes. The lab's headsets are set up to fit glasses. Let us know if you need help getting a comfortable fit.</p>
+</details>
 
-<h3 class="fw-bold h6 mb-1">Do I need an appointment?</h3>
+<details class="xr-accordion">
+<summary>Do I need an appointment?</summary>
 
-<p class="small text-body-secondary mb-3 pt-0">Not for students during Open Lab hours (Monday&ndash;Thursday, 9:00 AM&ndash;4:00 PM), as long as the lab isn't reserved. Classes, groups, and Friday visits need a booking.</p>
+<p class="mb-0 pt-0">Not for students during <a href="#lab-hours">Open Lab hours</a>, as long as the lab isn't reserved. Classes, groups, and Friday visits need a booking.</p>
+</details>
 
-<h3 class="fw-bold h6 mb-1">Is it free?</h3>
+<details class="xr-accordion">
+<summary>Is it free?</summary>
 
-<p class="small text-body-secondary mb-3 pt-0">Yes. The XR Lab is free to use.</p>
+<p class="mb-0 pt-0">Yes. The XR Lab is free to use.</p>
+</details>
 
-<h3 class="fw-bold h6 mb-1">Can I bring friends who aren't LSC students?</h3>
+<details class="xr-accordion">
+<summary>Can I bring friends who aren't LSC students?</summary>
 
-<p class="small text-body-secondary mb-3 pt-0">Yes. Guests are welcome in the lab.</p>
+<p class="mb-0 pt-0">Yes. Guests are welcome in the lab.</p>
+</details>
 
-<h3 class="fw-bold h6 mb-1">How do I sign in?</h3>
+<details class="xr-accordion">
+<summary>How do I sign in?</summary>
 
-<p class="small text-body-secondary mb-0">Students and staff sign in at the lab with their LSC ID or LSC email.</p>
+<p class="mb-0 pt-0">Students and staff sign in at the lab with their LSC ID or LSC email.</p>
+</details>
 </div>
 
-<div class="col-md-6">
-<h3 class="fw-bold h6 mb-1">How far ahead should I book a class visit?</h3>
+<div class="col-lg-6">
+<details class="xr-accordion">
+<summary>How far ahead should I book a class visit?</summary>
 
-<p class="small text-body-secondary mb-3 pt-0">At least 1 week. New apps that need testing or purchasing take longer, so schedule a consultation early in the semester if you can.</p>
+<p class="mb-0 pt-0">At least 1 week. New apps that need testing or purchasing take longer, so schedule a consultation early in the semester if you can.</p>
+</details>
 
-<h3 class="fw-bold h6 mb-1">How many students can use the lab at once?</h3>
+<details class="xr-accordion">
+<summary>How many students can use the lab at once?</summary>
 
-<p class="small text-body-secondary mb-3 pt-0">Eight people can be in headsets at the same time. Larger groups rotate, and others can watch the headset views on the iPads or Vibe Board.</p>
+<p class="mb-0 pt-0">Eight people can be in headsets at the same time. Larger groups rotate, and others can watch the headset views on the iPads or Vibe Board.</p>
+</details>
 
-<h3 class="fw-bold h6 mb-1">What if I start to feel sick in VR?</h3>
+<details class="xr-accordion">
+<summary>What if I start to feel sick in VR?</summary>
 
-<p class="small text-body-secondary mb-3 pt-0">Take the headset off, sit down, and let staff know. Discomfort usually passes in a few minutes. Slower, seated experiences are a good place to start.</p>
+<p class="mb-0 pt-0">Take the headset off, sit down, and let staff know. Discomfort usually passes in a few minutes. Slower, seated experiences are a good place to start.</p>
+</details>
 
-<h3 class="fw-bold h6 mb-1">Can I work on my own XR project in the lab?</h3>
+<details class="xr-accordion">
+<summary>Can I work on my own XR project in the lab?</summary>
 
-<p class="small text-body-secondary mb-3 pt-0">Yes. Students are welcome to use the lab for class or personal XR projects during Open Lab hours. Please bring your own laptop for development work.</p>
+<p class="mb-0 pt-0">Yes. Students are welcome to use the lab for class or personal XR projects during Open Lab hours. Please bring your own laptop for development work.</p>
+</details>
 
-<h3 class="fw-bold h6 mb-1">Can faculty or staff borrow a headset?</h3>
+<details class="xr-accordion">
+<summary>Can faculty or staff borrow a headset?</summary>
 
-<p class="small text-body-secondary mb-0">Meta Quest 2 headsets are available for faculty and staff checkout and testing. Email the lab to request one, and we'll work out the checkout length with you based on your project.</p>
+<p class="mb-0 pt-0">Meta Quest 2 headsets are available for faculty and staff checkout and testing. Email the lab to request one, and we'll work out the checkout length with you based on your project.</p>
+</details>
 </div>
 </div>
 <!-- ========================= --><!--         CONTACT           --><!-- ========================= -->
 
 <div class="mb-4 p-4 rounded xr-dark">
 <div class="align-items-center g-3 row">
-<div class="col-md-4">
+<div class="col-lg-4">
 <h2 class="h4 mb-0 pt-0 text-white" id="contact">Support and Contact</h2>
 </div>
 
-<div class="col-md-8">
-<p class="d-flex flex-wrap gap-4 mb-0"><a class="text-white fw-bold" href="mailto:TC-XRLab@lonestar.edu"><i aria-hidden="true" class="fa-envelope fas me-1"></i> TC-XRLab@lonestar.edu</a><a class="text-white fw-bold" href="https://outlook.office.com/book/XRLabBooking@mylonestar.onmicrosoft.com/?ismsaljsauthenabled" rel="noopener" target="_blank"><i aria-hidden="true" class="fa-calendar-check fas me-1"></i> Booking Page</a><a class="text-white fw-bold" href="https://outlook.office.com/book/XRLabConsultation@mylonestar.onmicrosoft.com/s/IIC2doJv1kqdJg-fyLMMJw2?ismsaljsauthenabled" rel="noopener" target="_blank"><i aria-hidden="true" class="fa-comments fas me-1"></i> Consultation</a><a class="text-white fw-bold" href="https://forms.cloud.microsoft/r/REX9eYTu3m" rel="noopener" target="_blank"><i aria-hidden="true" class="fa-paper-plane fas me-1"></i> App / Game Request</a></p>
+<div class="col-lg-8">
+<p class="d-flex flex-wrap gap-4 justify-content-lg-end mb-0"><a class="text-white fw-bold" href="mailto:TC-XRLab@lonestar.edu"><i aria-hidden="true" class="fa-envelope fas me-1"></i> TC-XRLab@lonestar.edu</a><a class="text-white fw-bold" href="https://outlook.office.com/book/XRLabBooking@mylonestar.onmicrosoft.com/?ismsaljsauthenabled" rel="noopener" target="_blank"><i aria-hidden="true" class="fa-calendar-check fas me-1"></i> Booking Page</a><a class="text-white fw-bold" href="https://outlook.office.com/book/XRLabConsultation@mylonestar.onmicrosoft.com/s/IIC2doJv1kqdJg-fyLMMJw2?ismsaljsauthenabled" rel="noopener" target="_blank"><i aria-hidden="true" class="fa-comments fas me-1"></i> Consultation</a><a class="text-white fw-bold" href="https://forms.cloud.microsoft/r/REX9eYTu3m" rel="noopener" target="_blank"><i aria-hidden="true" class="fa-paper-plane fas me-1"></i> App / Game Request</a></p>
 </div>
 </div>
 </div>
@@ -648,16 +701,18 @@
 <script>
   // PREVIEW ONLY (not part of the CMS content).
   (function () {
-    // 1. Full-width layout toggle (?wide).
-    var wide = /[?&]wide\b/.test(location.search);
+    // 1. Layout: full width by default (the page is designed for it);
+    //    ?sidebar shows the current template with the "Related" sidebar.
+    var sidebar = /[?&]sidebar/.test(location.search);
+    var bare = /[?&]bare/.test(location.search);
     var toggle = document.getElementById("layout-toggle");
-    var bare = /[?&]bare\b/.test(location.search);
-    if (bare) toggle.setAttribute("href", "?bare&wide");
-    if (wide) {
+    if (sidebar) {
+      toggle.textContent = "Switch to full width";
+      toggle.setAttribute("href", bare ? "?bare" : location.pathname);
+    } else {
       document.getElementById("sidebar-col").remove();
       document.getElementById("content-col").className = "col-12";
-      toggle.textContent = "Switch to sidebar layout";
-      toggle.setAttribute("href", bare ? "?bare" : location.pathname);
+      toggle.setAttribute("href", bare ? "?bare&sidebar" : "?sidebar");
     }
 
     // 2. Until files are deployed to GitHub Pages (and while editing), load
