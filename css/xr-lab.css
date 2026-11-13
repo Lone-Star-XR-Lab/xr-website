@@ -1,0 +1,165 @@
+/* =========================================================
+   XR Lab page theme
+   Colors taken from the XR Lab logo: deep space navy, bright
+   gold, and white. Everything is scoped to .xr-page so it
+   never touches the rest of the site.
+   Host this file on GitHub Pages and link it from the page.
+   ========================================================= */
+
+.xr-page {
+	--xr-navy: #0b1d3a;
+	--xr-navy-deep: #06122a;
+	--xr-gold: #ffcf24;
+	--xr-gold-hover: #ffdd5c;
+	--xr-soft: #eef3fb;
+	--xr-link: #1b4fa8;
+}
+
+/* ---------- Headings and links ---------- */
+.xr-page h2,
+.xr-page h3 {
+	color: var(--xr-navy);
+}
+
+.xr-page a:not(.btn) {
+	color: var(--xr-link);
+}
+
+.xr-page a:focus-visible,
+.xr-page .btn:focus-visible {
+	outline: 3px solid var(--xr-gold);
+	outline-offset: 2px;
+	box-shadow: none;
+}
+
+/* ---------- Dark "space" sections ---------- */
+.xr-page .xr-dark {
+	color: #fff;
+	background-color: var(--xr-navy-deep);
+	background-image:
+		radial-gradient(circle at 88% 12%, rgba(255, 207, 36, 0.18), transparent 38%),
+		radial-gradient(circle at 8% 90%, rgba(80, 140, 255, 0.18), transparent 40%),
+		radial-gradient(1.5px 1.5px at 12% 20%, #fff 50%, transparent 51%),
+		radial-gradient(1px 1px at 30% 70%, rgba(255, 255, 255, 0.8) 50%, transparent 51%),
+		radial-gradient(1.5px 1.5px at 55% 35%, var(--xr-gold) 50%, transparent 51%),
+		radial-gradient(1px 1px at 72% 80%, rgba(255, 255, 255, 0.7) 50%, transparent 51%),
+		radial-gradient(1.5px 1.5px at 90% 55%, #fff 50%, transparent 51%),
+		radial-gradient(1px 1px at 42% 10%, var(--xr-gold) 50%, transparent 51%),
+		linear-gradient(135deg, var(--xr-navy-deep), var(--xr-navy));
+}
+
+.xr-page .xr-dark h2,
+.xr-page .xr-dark h3 {
+	color: #fff;
+}
+
+.xr-page .xr-dark a:not(.btn) {
+	color: #fff;
+}
+
+.xr-page .xr-dark a:not(.btn):hover,
+.xr-page .xr-dark a.text-white:hover {
+	color: var(--xr-gold) !important;
+}
+
+.xr-page .xr-gold {
+	color: var(--xr-gold);
+}
+
+/* ---------- Light tinted sections ---------- */
+.xr-page .xr-soft {
+	background-color: var(--xr-soft);
+}
+
+/* ---------- Section label above each heading ---------- */
+.xr-page .xr-eyebrow {
+	color: var(--xr-navy);
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	border-left: 4px solid var(--xr-gold);
+	padding-left: 0.5rem;
+}
+
+.xr-page .xr-eyebrow a {
+	color: inherit !important;
+	text-decoration: none;
+}
+
+/* ---------- Cards ---------- */
+.xr-page .xr-card {
+	border: 0;
+	border-top: 4px solid var(--xr-gold);
+	box-shadow: 0 0.25rem 0.75rem rgba(11, 29, 58, 0.1);
+}
+
+/* ---------- Icons ---------- */
+.xr-page .xr-accent {
+	color: var(--xr-navy);
+}
+
+.xr-page .xr-icon-circle {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 50%;
+	background-color: var(--xr-navy);
+	color: var(--xr-gold);
+	font-size: 1.25rem;
+}
+
+/* ---------- Buttons ---------- */
+.xr-page .btn-xr {
+	background-color: var(--xr-gold);
+	border-color: var(--xr-gold);
+	color: var(--xr-navy);
+	font-weight: 700;
+}
+
+.xr-page .btn-xr:hover {
+	background-color: var(--xr-gold-hover);
+	border-color: var(--xr-gold-hover);
+	color: var(--xr-navy);
+}
+
+.xr-page .btn-xr-outline {
+	background-color: transparent;
+	border-color: var(--xr-gold);
+	color: #fff;
+	font-weight: 700;
+}
+
+.xr-page .btn-xr-outline:hover {
+	background-color: var(--xr-gold);
+	color: var(--xr-navy);
+}
+
+.xr-page .btn-xr-navy-outline {
+	background-color: transparent;
+	border-color: var(--xr-navy);
+	color: var(--xr-navy);
+	font-weight: 700;
+}
+
+.xr-page .btn-xr-navy-outline:hover {
+	background-color: var(--xr-navy);
+	color: var(--xr-gold);
+}
+
+/* ---------- Tables ---------- */
+.xr-page .xr-table thead th {
+	--bs-table-bg: var(--xr-navy);
+	--bs-table-color: #fff;
+	background-color: var(--xr-navy);
+	color: #fff;
+}
+
+/* ---------- Logo ---------- */
+.xr-page .xr-logo {
+	width: 88px;
+	height: auto;
+	flex-shrink: 0;
+}

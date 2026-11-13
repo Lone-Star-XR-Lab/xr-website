@@ -12,6 +12,8 @@ project: plain HTML, with no build step and nothing to install. Not an official 
 | `index.html` | **The page.** The content between `BEGIN CMS CONTENT` and `END CMS CONTENT` is what goes into the CMS. It starts as an exact copy of the live content (November 13, 2026). The rest of the file is a preview wrapper. |
 | `playground.html` | **Scratch page.** Sample XR Lab sections built from patterns already proven on lonestar.edu: hero, jump-link bar, key facts, cards, hours table, widget embed, call-to-action band. Try ideas here, then move what works into `index.html`. |
 | `css/cms-fix.css` | Hosted on GitHub Pages and linked at the top of the content. Fixes the site-wide `body { width: 100vw }` bug that pushes content under the scrollbar. |
+| `css/xr-lab.css` | Hosted on GitHub Pages and linked at the top of the content. The XR Lab theme in the logo's colors (navy, gold, white): `xr-dark` space bands, `xr-card`, `xr-eyebrow`, `xr-icon-circle`, `btn-xr` buttons, and more. Scoped to `.xr-page`, the wrapper around the CMS content, so it never touches the rest of the site. |
+| `images/xr-lab-logo.png` | XR Lab logo, shown in the page's hero band. |
 | `widgets/` | (Create when needed.) For anything interactive (search, filters, JavaScript): each widget is its own page on GitHub Pages, embedded with an iframe. |
 | `preview/site-chrome.js` | **Preview only.** The real lonestar.edu header (navbar, search, Ask button) and footer, copied from the live page so previews show the full look. Generated; don't edit by hand. |
 | `tools/check.js` | Lints the CMS block and compares it with the live page (see below). |

@@ -251,6 +251,9 @@
     document.querySelectorAll('a[href^="' + live + '"]').forEach(function (el) {
       el.setAttribute("href", el.getAttribute("href").replace(live, ""));
     });
+    document.querySelectorAll('img[src^="' + live + '"]').forEach(function (el) {
+      el.setAttribute("src", el.getAttribute("src").replace(live, ""));
+    });
     document.querySelectorAll('iframe[src^="' + live + '"]').forEach(function (frame) {
       var copy = frame.cloneNode(true);
       copy.setAttribute("src", frame.getAttribute("src").replace(live, ""));
